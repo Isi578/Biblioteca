@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="15.0"
+      prefWidth="950.0"
+      prefHeight="650.0"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="biblioteca.controller.BibliotecaController">
+
+    <padding>
+        <Insets top="20"
+                right="20"
+                bottom="20"
+                left="20"/>
+    </padding>
+
+    <Label text="SISTEMA DE BIBLIOTECA"
+           style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <TabPane VBox.vgrow="ALWAYS">
+
+        <!-- ========================= -->
+        <!-- LIBROS -->
+        <!-- ========================= -->
+
+        <Tab text="Libros"
+             closable="false">
+
+            <ScrollPane fitToWidth="true">
+
+                <content>
+
+                    <VBox spacing="15">
+
+                        <TitledPane text="Registrar libro"
+                                    expanded="true">
+
+                            <content>
+
+                                <GridPane hgap="10"
+                                          vgap="10">
+
+                                    <Label text="Código:"
+                                           GridPane.rowIndex="0"
+                                           GridPane.columnIndex="0"/>
+
+                                    <TextField fx:id="codigoLibro"
+                                               promptText="Ej: L001"
+                                               GridPane.rowIndex="0"
+                                               GridPane.columnIndex="1"/>
+
+
+                                    <Label text="Título:"
+                                           GridPane.rowIndex="1"
+                                           GridPane.columnIndex="0"/>
+
+                                    <TextField fx:id="tituloLibro"
+                                               promptText="Título del libro"
+                                               GridPane.rowIndex="1"
+                                               GridPane.columnIndex="1"/>
+
+
+                                    <Label text="Autor:"
+                                           GridPane.rowIndex="2"
+                                           GridPane.columnIndex="0"/>
+
+                                    <TextField fx:id="autorLibro"
+                                               promptText="Autor"
+                                               GridPane.rowIndex="2"
+                                               GridPane.columnIndex="1"/>
+
+
+                                    <Label text="Categoría:"
+                                           GridPane.rowIndex="3"
+                                           GridPane.columnIndex="0"/>
+
+                                    <TextField fx:id="categoriaLibro"
+                                               promptText="Ej: Programación"
+                                               GridPane.rowIndex="3"
+                                               GridPane.columnIndex="1"/>
+
+
+                                    <Button text="Registrar libro"
+                                            onAction="#registrarLibro"
+                                            GridPane.rowIndex="4"
+                                            GridPane.columnIndex="1"/>
+
+                                </GridPane>
+
+                            </content>
+
+                        </TitledPane>
+
+
+                        <TitledPane text="Clonar libro"
+                                    expanded="false">
+
+                            <content>
+
+                                <GridPane hgap="10"
+                                          vgap="10">
+
+                                    <Label text="Código original:"
+                                           GridPane.rowIndex="0"
+                                           GridPane.columnIndex="0"/>
+
+                                    <TextField fx:id="codigoLibroOriginal"
+                                               promptText="Código del libro existente"
+                                               GridPane.rowIndex="0"
+                                               GridPane.columnIndex="1"/>
+
+
+                                    <Label text="Nuevo código:"
+                                           GridPane.rowIndex="1"
+                                           GridPane.columnIndex="0"/>
+
+                                    <TextField fx:id="nuevoCodigoLibro"
+                                               promptText="Código de la copia"
+                                               GridPane.rowIndex="1"
+                                               GridPane.columnIndex="1"/>
+
+
+                                    <Button text="Clonar libro"
+                                            onAction="#clonarLibro"
+                                            GridPane.rowIndex="2"
+                                            GridPane.columnIndex="1"/>
+
+                                </GridPane>
+
+                            </content>
+
+                        </TitledPane>
+
+
+                        <Label text="Libros registrados"
+                               style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+
+                        <TableView fx:id="tablaLibros"
+                                   prefHeight="300">
+
+                            <columns>
+
+                                <TableColumn fx:id="columnaCodigo"
+                                             text="Código"
+                                             prefWidth="100"/>
+
+                                <TableColumn fx:id="columnaTitulo"
+                                             text="Título"
+                                             prefWidth="180"/>
+
+                                <TableColumn fx:id="columnaAutor"
+                                             text="Autor"
+                                             prefWidth="160"/>
+
+                                <TableColumn fx:id="columnaCategoria"
+                                             text="Categoría"
+                                             prefWidth="150"/>
+
+                                <TableColumn fx:id="columnaEstado"
+                                             text="Estado"
+                                             prefWidth="120"/>
+
+                            </columns>
+
+                        </TableView>
+
+
+                        <Button text="Actualizar lista"
+                                onAction="#actualizarTablaLibros"/>
+
+                    </VBox>
+
+                </content>
+
+            </ScrollPane>
+
+        </Tab>
+
+
+        <!-- ========================= -->
+        <!-- PRÉSTAMOS -->
+        <!-- ========================= -->
+
+        <Tab text="Préstamos"
+             closable="false">
+
+            <VBox spacing="20">
+
+                <TitledPane text="Realizar préstamo"
+                            expanded="true">
+
+                    <content>
+
+                        <GridPane hgap="10"
+                                  vgap="10">
+
+                            <Label text="Código del libro:"
+                                   GridPane.rowIndex="0"
+                                   GridPane.columnIndex="0"/>
+
+                            <TextField fx:id="codigoLibroPrestamo"
+                                       promptText="Código del libro"
+                                       GridPane.rowIndex="0"
+                                       GridPane.columnIndex="1"/>
+
+
+                            <Label text="Fecha límite:"
+                                   GridPane.rowIndex="1"
+                                   GridPane.columnIndex="0"/>
+
+                            <DatePicker fx:id="fechaLimitePrestamo"
+                                        GridPane.rowIndex="1"
+                                        GridPane.columnIndex="1"/>
+
+
+                            <Button text="Realizar préstamo"
+                                    onAction="#prestarLibro"
+                                    GridPane.rowIndex="2"
+                                    GridPane.columnIndex="1"/>
+
+                        </GridPane>
+
+                    </content>
+
+                </TitledPane>
+
+
+                <TitledPane text="Registrar devolución"
+                            expanded="true">
+
+                    <content>
+
+                        <GridPane hgap="10"
+                                  vgap="10">
+
+                            <Label text="ID del préstamo:"
+                                   GridPane.rowIndex="0"
+                                   GridPane.columnIndex="0"/>
+
+                            <TextField fx:id="idPrestamoDevolucion"
+                                       promptText="ID generado al prestar"
+                                       GridPane.rowIndex="0"
+                                       GridPane.columnIndex="1"/>
+
+
+                            <Label text="Fecha de devolución:"
+                                   GridPane.rowIndex="1"
+                                   GridPane.columnIndex="0"/>
+
+                            <DatePicker fx:id="fechaDevolucion"
+                                        GridPane.rowIndex="1"
+                                        GridPane.columnIndex="1"/>
+
+
+                            <Button text="Registrar devolución"
+                                    onAction="#devolverLibro"
+                                    GridPane.rowIndex="2"
+                                    GridPane.columnIndex="1"/>
+
+                        </GridPane>
+
+                    </content>
+
+                </TitledPane>
+
+            </VBox>
+
+        </Tab>
+
+
+        <!-- ========================= -->
+        <!-- CONFIGURACIÓN -->
+        <!-- ========================= -->
+
+        <Tab text="Configuración"
+             closable="false">
+
+            <VBox spacing="15">
+
+                <Label text="Configuración general"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+
+                <GridPane hgap="10"
+                          vgap="10">
+
+                    <Label text="Nombre:"
+                           GridPane.rowIndex="0"
+                           GridPane.columnIndex="0"/>
+
+                    <TextField fx:id="nombreBiblioteca"
+                               GridPane.rowIndex="0"
+                               GridPane.columnIndex="1"/>
+
+
+                    <Label text="Dirección:"
+                           GridPane.rowIndex="1"
+                           GridPane.columnIndex="0"/>
+
+                    <TextField fx:id="direccionBiblioteca"
+                               GridPane.rowIndex="1"
+                               GridPane.columnIndex="1"/>
+
+
+                    <Label text="Porcentaje de multa:"
+                           GridPane.rowIndex="2"
+                           GridPane.columnIndex="0"/>
+
+                    <TextField fx:id="porcentajeMulta"
+                               promptText="Ej: 10"
+                               GridPane.rowIndex="2"
+                               GridPane.columnIndex="1"/>
+
+
+                    <Button text="Guardar configuración"
+                            onAction="#guardarConfiguracion"
+                            GridPane.rowIndex="3"
+                            GridPane.columnIndex="1"/>
+
+                </GridPane>
+
+
+                <Label text="Configuración actual:"
+                       style="-fx-font-weight: bold;"/>
+
+
+                <Label fx:id="configuracionActual"/>
+
+            </VBox>
+
+        </Tab>
+
+    </TabPane>
+
+</VBox>
