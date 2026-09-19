@@ -1,4 +1,5 @@
 module unknown.biblioteca {
+
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -12,5 +13,7 @@ module unknown.biblioteca {
     requires com.almasb.fxgl.all;
 
     opens biblioteca to javafx.fxml;
+    opens biblioteca.controller to javafx.fxml;
+
     exports biblioteca;
 }
