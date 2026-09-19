@@ -6,9 +6,11 @@ import biblioteca.model.Libro;
 import biblioteca.model.Prestamo;
 
 import java.time.LocalDate;
-import java.util.UUID;
+
 
 public class ServicioPrestamo {
+
+    private static int siguienteId = 1;
 
     private final LibroRepository libroRepository;
     private final PrestamoRepository prestamoRepository;
@@ -54,8 +56,10 @@ public class ServicioPrestamo {
 
         libro.prestar();
 
+        String id = String.valueOf(siguienteId++);
+
         Prestamo prestamo = new Prestamo(
-                UUID.randomUUID().toString(),
+                id,
                 libro,
                 fechaPrestamo,
                 fechaLimite
