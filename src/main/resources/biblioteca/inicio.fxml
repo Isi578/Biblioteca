@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="599.0" prefWidth="848.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.viewController.InicioViewController">
+    <children>
+        <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <children>
+                <TabPane fx:id="tabPane" maxWidth="1.7976931348623157E308" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                    <tabs>
+                        <Tab text="Registrar Usuarios">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="504.0" prefWidth="762.0">
+                                    <children>
+                                        <SplitPane layoutY="7.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="762.0">
+                                            <items>
+                                                <fx:include fx:id="recepcionistaUsuarios" source="configuracion.fxml" />
+                                            </items>
+                                        </SplitPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Asignar Membresías">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="504.0" prefWidth="762.0">
+                                    <children>
+                                        <SplitPane layoutY="7.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="762.0">
+                                            <items>
+                                                <fx:include fx:id="recepcionistaMembresias" source="configuracion.fxml" />
+                                            </items>
+                                        </SplitPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Reservar Clases">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="504.0" prefWidth="762.0">
+                                    <children>
+                                        <SplitPane layoutY="7.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="762.0">
+                                            <items>
+                                                <fx:include fx:id="recepcionistaReservaClases" source="libro.fxml" />
+                                            </items>
+                                        </SplitPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Control de Acceso">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="504.0" prefWidth="762.0">
+                                    <children>
+                                        <SplitPane layoutY="7.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="762.0">
+                                            <items>
+                                                <fx:include fx:id="recepcionistaControlAccesos" source="prestamo.fxml" />
+                                            </items>
+                                        </SplitPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Reportes">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="504.0" prefWidth="762.0">
+                                    <children>
+                                        <SplitPane layoutY="7.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="762.0">
+                                            <items>
+                                                <fx:include fx:id="recepcionistaReportes" source="recepReporte.fxml" />
+                                            </items>
+                                        </SplitPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab>
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                            </content>
+                            <graphic>
+                                <MenuButton alignment="TOP_RIGHT" mnemonicParsing="false" text="☰">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar Sesión" />
+                                    </items>
+                                </MenuButton>
+                            </graphic>
+                        </Tab>
+                    </tabs>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </TabPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
